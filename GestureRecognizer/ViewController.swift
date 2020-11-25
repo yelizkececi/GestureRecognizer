@@ -7,11 +7,13 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var myLabel: UILabel!
-
+    
+    var imagePicker = UIImagePickerController()
+    
     var images: [UIImage] = [
         UIImage(named: "mutluluk")!,
         UIImage(named: "manzara")!,
@@ -27,7 +29,7 @@ class ViewController: UIViewController {
         imageView.addGestureRecognizer(gestureRecognizer)
         imageView.layer.cornerRadius = 10.0
     }
-
+    
     @objc func changePicture(){
         
         if selectedIndex >= (images.count - 1){
@@ -48,19 +50,45 @@ class ViewController: UIViewController {
     @IBAction func backClicked(_ sender: Any) {
         
         if selectedIndex == 0 {
-            selectedIndex = images.count
+            selectedIndex = images.count - 1
+            
+        } else {
+            selectedIndex -= 1
         }
         
-        selectedIndex -= 1
         imageView.image = images[selectedIndex]
         
     }
     
     @IBAction func nextClicked(_ sender: Any) {
         
-        selectedIndex += 1
-        imageView.image = images[selectedIndex % images.count]
+        selectedIndex = ((selectedIndex + 1) % images.count )
+        print(selectedIndex)
+        imageView.image = images[selectedIndex]
+        //selectedIndex += 1
         
     }
+    
+    @IBAction func addPhotoClicked(_ sender: Any) {
+        
+        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
+            print("Button capture")
+            
+            imagePicker.delegate = self
+            imagePicker.sourceType = .savedPhotosAlbum
+            imagePicker.allowsEditing = false
+            
+            present(imagePicker, animated: true, completion: nil)
+        }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        if let image = info[.originalImage] as? UIImage {
+            images.append(image)
+            dismiss(animated: true, completion: nil)
+        }
+    }
+    
 }
 
