@@ -15,6 +15,8 @@
 		215CF644256D9E340073EE56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 215CF642256D9E340073EE56 /* LaunchScreen.storyboard */; };
 		215CF64F256D9E340073EE56 /* GestureRecognizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215CF64E256D9E340073EE56 /* GestureRecognizerTests.swift */; };
 		215CF65A256D9E340073EE56 /* GestureRecognizerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215CF659256D9E340073EE56 /* GestureRecognizerUITests.swift */; };
+		21770E28256F086E00521116 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21770E27256F086E00521116 /* Image.swift */; };
+		21770E2D256F137D00521116 /* AddImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21770E2C256F137D00521116 /* AddImageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		215CF655256D9E340073EE56 /* GestureRecognizerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GestureRecognizerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		215CF659256D9E340073EE56 /* GestureRecognizerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureRecognizerUITests.swift; sourceTree = "<group>"; };
 		215CF65B256D9E340073EE56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21770E27256F086E00521116 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		21770E2C256F137D00521116 /* AddImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,8 @@
 				215CF640256D9E340073EE56 /* Assets.xcassets */,
 				215CF642256D9E340073EE56 /* LaunchScreen.storyboard */,
 				215CF645256D9E340073EE56 /* Info.plist */,
+				21770E27256F086E00521116 /* Image.swift */,
+				21770E2C256F137D00521116 /* AddImageViewController.swift */,
 			);
 			path = GestureRecognizer;
 			sourceTree = "<group>";
@@ -259,7 +265,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				215CF63C256D9E2F0073EE56 /* ViewController.swift in Sources */,
+				21770E28256F086E00521116 /* Image.swift in Sources */,
 				215CF638256D9E2F0073EE56 /* AppDelegate.swift in Sources */,
+				21770E2D256F137D00521116 /* AddImageViewController.swift in Sources */,
 				215CF63A256D9E2F0073EE56 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

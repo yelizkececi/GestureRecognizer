@@ -11,14 +11,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var myLabel: UILabel!
+    @IBOutlet weak var imageTitleTextField: UITextField!
     
     var imagePicker = UIImagePickerController()
     
-    var images: [UIImage] = [
-        UIImage(named: "mutluluk")!,
-        UIImage(named: "manzara")!,
-        UIImage(named: "love")!,
-        UIImage(named: "tree")!
+    var images: [Image] = [
+        Image(title : "mutluluk", image: UIImage(named: "mutluluk")!),
+        Image(title : "manzara", image: UIImage(named: "manzara")!),
+        Image(title : "love", image: UIImage(named: "love")!),
+        Image(title : "tree", image: UIImage(named: "tree")!)
     ]
     
     var selectedIndex = 0
@@ -43,8 +44,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func selectImage(at index: Int) {
-        imageView.image = images[index]
-        myLabel.text = "Manzara"
+        imageView.image = images[index].image
+        myLabel.text = images[index].title
     }
     
     @IBAction func backClicked(_ sender: Any) {
@@ -56,7 +57,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             selectedIndex -= 1
         }
         
-        imageView.image = images[selectedIndex]
+        imageView.image = images[selectedIndex].image
+        myLabel.text = images[selectedIndex].title
         
     }
     
@@ -64,8 +66,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         selectedIndex = ((selectedIndex + 1) % images.count )
         print(selectedIndex)
-        imageView.image = images[selectedIndex]
-        //selectedIndex += 1
+        imageView.image = images[selectedIndex].image
+        myLabel.text = images[selectedIndex].title
         
     }
     
@@ -84,10 +86,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
-        if let image = info[.originalImage] as? UIImage {
-            images.append(image)
+        if let image = info[.originalImage] as? UIImage,
+           let newTitle = imageTitleTextField.text {
+            images.append(Image(title: newTitle, image: image))
             dismiss(animated: true, completion: nil)
+            imageTitleTextField.text = ""
         }
+        
     }
     
 }

@@ -2,12 +2,14 @@
 //  Image.swift
 //  GestureRecognizer
 //
-//  Created by Yeliz Keçeci on 25.11.2020.
+//  Created by Yeliz Keçeci on 26.11.2020.
 //
 
-import Foundation
+import UIKit
 
-struct image {
-   var title : String,
-   var images : UIImage
+
+struct Image {
+    let title : String
+    let image : UIImage
+        
 }
