@@ -12,6 +12,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var myLabel: UILabel!
     @IBOutlet weak var imageTitleTextField: UITextField!
+    @IBOutlet weak var label: UILabel!
     
     var imagePicker = UIImagePickerController()
     
@@ -29,6 +30,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(changePicture))
         imageView.addGestureRecognizer(gestureRecognizer)
         imageView.layer.cornerRadius = 10.0
+        
+        label.layer.borderWidth = 2.0
+        label.layer.cornerRadius = 8
     }
     
     @objc func changePicture(){
@@ -45,7 +49,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func selectImage(at index: Int) {
         imageView.image = images[index].image
-        myLabel.text = images[index].title
+        myLabel.text = images[index].title.capitalized
     }
     
     @IBAction func backClicked(_ sender: Any) {
